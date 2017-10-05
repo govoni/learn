@@ -1,0 +1,4 @@
+Rint.Load:               TMVAalias.C
+Rint.Logon:              TMVAlogon.C
+Rint.Logoff:             TMVAlogoff.C
+Rint.History:            ./.root_hist

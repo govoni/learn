@@ -1,0 +1,55 @@
+Constructor:
+
+
+
+
+Eventloop:
+==========
+
+old:
+
+for(Int_t ievt=0; ievt<Data().GetNEvtTrain(); ievt++)
+
+  ReadTrainingEvent(ievt);
+  GetEventVal( ivar )
+  GetEventWeight()
+  IsSignalEvent()
+
+new:
+
+for (Int_t ievt=0; ievt<Data()->GetNEvents(); ievt++)
+
+  const Event * ev = GetEvent(ievt);
+  ev->GetVal( ivar )
+  ev->GetWeight()
+  ev->IsSignal()
+
+
+
+
+MethodANNBase
+MethodBayesClassifier
+MethodBDT              --> done J
+MethodBoost            --> done
+MethodCFMlpANN_def
+MethodCFMlpANN
+MethodCFMlpANN_Utils
+MethodCommittee
+MethodCompositeBase    --> done
+MethodCuts             --> done P (ProcessCuts has to be refactored)
+MethodDT               --> done
+MethodFDA              --> done P
+MethodFisher           --> done J
+MethodHMatrix          --> done J
+MethodKNN              --> done P
+MethodLikelihood       --> done J
+MethodMLP              --> done J
+MethodPDERS            --> done J
+MethodRuleFit          --> done P
+MethodSeedDistance     --> done P
+MethodSVM              --> done P
+MethodTMlpANN          --> done P (Train-method has to be checked. Order of signal and background is not as written in comment)
+MethodVariable
+
+
+

@@ -1,0 +1,42 @@
+rs500d_PrepareWorkspace_GaussOverFlat_withSystematics
+-----------------------------------------------------
+
+preparo un workspace di roofit con dentro:
+- segnale gaussiano
+- fondo piatto
+- modello = segnale + fondo
+- modello di fondo, immagino per fare il fit?
+- priore poissoniana per il segnale
+- priore gaussiana per la sigma del segnale
+- priore gaussiana per il numero di eventi di fondo
+- prodotto di queste ultime priori
+- definizione delle osservabili come la mean della pdf
+- definizione dei parametri di noia come la sigma del segnale 
+  e il num. di eventi di fondo
+- dove dico quanti eventi generare? ci sara' un default
+- inserisco i dati nel workspace
+
+rs501_ProfileLikelihoodCalculator_limit
+---------------------------------------
+
+(nel disegno c'e' un bug)
+- apro il workspace creato prima
+- importo:
+	- workspace
+	- modello di segnale+fondo
+	- i dati
+	- le prior (il prodotto) di sigmaSig * numBkg
+	- il "set" di variabili segnale, immagino
+		questo viene castato in una variabile
+- moltiplico le prior dei parametri di noia per il modello
+- istanzio un ProfileLikelihoodCalculator
+- imposto la dimensione del test (1 - CL)
+- faccio un fit ai dati del modello
+- chiedo l'intervallo con al calcolatore
+- calcolo il confidence interval
+- calcolo l'upper limit
+
+rs502_ProfileLikelihoodCalculator_significance
+----------------------------------------------
+
+

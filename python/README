@@ -1,0 +1,2 @@
+install_name_tool -change /sw/lib/libssl.1.0.0.dylib libssl.1.0.0.dylib /Users/govoni/private/job/cms/software/root/lib/libNet.so
+otool -L /Users/govoni/private/job/cms/software/root/lib/libNet.so

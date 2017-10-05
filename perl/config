@@ -1,0 +1,51 @@
+[General]
+#BatchMode
+
+[Input]
+Files = ./run
+EventHeader
+RawTowers = BRawTower_63
+RawTdcCONFIG = BRawTdcCONFIG
+RunCONFIG
+
+[RootDB]
+H4RootDB = /afs/cern.ch/user/k/koblitz/scratch0/h4/rootdb2003.root
+#H4SQLDB  = suncms100.cern.ch, WWW, myWeb01
+
+[Towers]
+TimeSamples = 14
+
+[Action]
+Calculate=PulseShape # another comment
+
+#Pedestal CONFIG 
+[Pedestals]
+FileName = /afs/cern.ch/user/k/koblitz/scratch0/h4/Ped2003.root
+TreeName = TPedestals
+#TowerNames = Tower_Peds_05.
+TowerNames = Tower_Peds_63.
+
+[Output]
+# File = output.root
+# Tree = T01
+# Tree = myTree
+H4Hodoscope
+H4RecEnergy
+
+[PulseFitWeights]
+Method = 0 # fit amplitude only
+#Method = 1 # fit amplitude + residual pedestal
+#Method = 2 # fit amplitude + time of max
+#Method = 3 # fit amplitude + residual pedestal + time of max
+nSamplesBeforeMax = 1
+nSamplesAfterMax = 3
+sampleMin = 2
+sampleMax = 10
+
+[PulseRec]
+ExpPulseShapeFile = /afs/cern.ch/user/k/koblitz/scratch0/h4/Shapes.root
+
+[RecEnergy]
+Width = 5
+Height = 5
+

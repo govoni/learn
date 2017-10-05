@@ -1,0 +1,107 @@
+      body { 
+        font-size: 14px ; 
+        font-family: verdana ; 
+        margin-left: 15px ;
+        }
+
+
+     .S1coeff {
+          width: 30% ; 
+          height: auto;
+          border: solid black 1px;
+          background: #00FFFF; 
+          padding: 5px; 
+          text-align: center;
+          margin-top: 2px;
+          margin-bottom: 2px;
+          margin-left: 2px;
+          margin-right: 2px;
+          float: left;
+        }
+     .S1release {
+          width: 94% ; 
+          height: auto;
+          border: solid black 1px;
+          background: #CCFFFF; 
+          padding: 5px; 
+          text-align: left;
+          margin-top: 2px;
+          margin-bottom: 2px;
+          margin-left: 2px;
+          margin-right: 2px;
+          float: left;
+        }
+     .S9coeff {
+          width: 30% ; 
+          height: auto;
+          border: solid black 1px;
+          background: #00FF66; 
+          padding: 5px; 
+          text-align: center;
+          margin-top: 2px;
+          margin-bottom: 2px;
+          margin-left: 2px;
+          margin-right: 2px;
+          float: left;
+        }
+     .S9release {
+          width: 94% ; 
+          height: auto;
+          border: solid black 1px;
+          background: #99FF66; 
+          padding: 5px; 
+          text-align: left;
+          margin-top: 2px;
+          margin-bottom: 2px;
+          margin-left: 2px;
+          margin-right: 2px;
+          float: left;
+        }
+     .S25coeff {
+          width: 30% ; 
+          height: auto;
+          border: solid black 1px;
+          background: #FF9900; 
+          padding: 5px; 
+          text-align: center;
+          margin-top: 2px;
+          margin-bottom: 2px;
+          margin-left: 2px;
+          margin-right: 2px;
+          float: left;
+        }
+     .S25release {
+          width: 94% ; 
+          height: auto;
+          border: solid black 1px;
+          background: #FFCC99; 
+          padding: 5px; 
+          text-align: left;
+          margin-top: 2px;
+          margin-bottom: 2px;
+          margin-left: 2px;
+          margin-right: 2px;
+          float: left;
+        }
+      .testo {
+          width: 100% ; 
+          height: auto;
+          text-align: left;
+          margin-top: 2px;
+          margin-bottom: 2px;
+          margin-left: 2px;
+          margin-right: 2px;
+          float: left;
+      }
+      .titolo {
+          width: 100% ; 
+          height: auto;
+          text-align: center;
+          font-size: 30px ; 
+          padding: 5px; 
+          margin-top: 10px;
+          margin-bottom: 30px;
+          margin-left: 2px;
+          margin-right: 2px;
+          float: left;
+      }

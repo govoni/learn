@@ -1,0 +1,819 @@
+<HTML>
+<HEAD>
+<!-- Menu  html/js/ex/9.bk Floating layers -->
+
+<link rel="stylesheet" type="text/css" href="../../default.css">
+<TITLE>JavaScript - Floating layers</TITLE>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="../../RollOver.js"></SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="../../RollOverImage.js"></SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="../../RollOverMenu.js"></SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript1.2">
+function openMenu() {
+  window.name = "main";
+  window.open("../../java/applets/siteViewerMenu.html",
+              "siteViewerMenu",
+              "width=300,height=475,resizable=no");
+}
+</SCRIPT>
+
+<style type="text/css">
+#progmenu { position:absolute; top:0; left:0; visibility:hidden; }
+#miscmenu { position:absolute; top:0; left:0; visibility:hidden; }
+.TitleMenu { width:110; }
+.TitleMenuItem { }
+</style>
+
+<script language="JavaScript1.2">
+
+RollImgBase='../../images/';
+RollOverImage('', 'menu', 'menu2.gif', 'menu.gif', 110, 25,
+              'javascript:openMenu()', 'Java Site Menu', 1);
+
+RollOverImage('', 'm1', 'pmenu2.gif', 'pmenu.gif', 110, 25,
+              '', 'Programming Sections', 1);
+
+RollOverImage('', 'm2', 'midi2.gif', 'midi.gif', 110, 25,
+              '../../midi/index.html', 'MIDI Music', 1);
+
+RollOverImage('', 'download', 'download2.gif', 'download.gif', 110, 25,
+              '../../downloads.html', 'Downloads', 1);
+
+RollOverImage('', 'feedback', 'feedback2.gif', 'feedback.gif', 110, 25,
+              '../../feedback.html', 'Feedback Form', 1);
+
+
+RollOverImage('progmenu', 'm1i1', 'c2.gif', 'c.gif', 110, 25,
+              '../../c/index.html', 'C Programming Section', 1);
+
+RollOverImage('progmenu', 'm1i2', 'java2.gif', 'java.gif', 110, 25,
+              '../../java/index.html', 'Java Section', 1);
+
+RollOverImage('progmenu', 'm1i3', 'perl2.gif', 'perl.gif', 110, 25,
+              '../../perl/index.html', 'Perl Section', 1);
+
+RollOverImage('progmenu', 'm1i4', 'html2.gif', 'html.gif', 110, 25,
+              '../../html/index.html', 'HTML Authoring', 1);
+
+RollOverImage('progmenu', 'm1i5', 'mqseries2.gif', 'mqseries.gif', 110, 25,
+              '../../MQSeries/index.html', 'IBM MQSeries', 1);
+
+
+//RollOverImage('midimenu', 'm2i1', 'songs2.gif', 'songs.gif', 110, 25,
+//              '../../midi/index.html#thesongs', 'Songs', 1);
+
+RollOverImage('miscmenu', 'm2i2', 'misc2.gif', 'misc.gif', 110, 25,
+              '../../misc/index.html', 'Miscellaneous Stuff', 1);
+
+RollOverImage('miscmenu', 'm2i1', 'midi2.gif', 'midi.gif', 110, 25,
+              '../../midi/index.html', 'MIDI comments', 1);
+
+RollOverImage('', 'consult', 'consult2.gif', 'consult.gif', 110, 25,
+              '../../r_a_micro/index.html', 'Consultancy Services', 1);
+</script>
+<script language="javascript">
+function init(){
+RollOverInit();
+titleMnuStyle = new RollOverStyle('TitleMenu','TitleMenuItem',null,null,null,null,null);
+
+mnu1 = new RollOverMenu('m1',titleMnuStyle,'progmenu','');
+mnu1.addImgItem(RollImgBase+'c.gif','../../c/index.html','C Programming Section');
+mnu1.addImgItem(RollImgBase+'java.gif','../../java/index.html','Java Section');
+mnu1.addImgItem(RollImgBase+'perl.gif','../../perl/index.html','Perl Section');
+mnu1.addImgItem(RollImgBase+'html.gif','../../html/index.html','HTML Authoring');
+mnu1.addImgItem(RollImgBase+'mqseries.gif','../../MQSeries/index.html','IBM MQSeries');
+
+mnu2 = new RollOverMenu('m2',titleMnuStyle,'miscmenu','');
+mnu2.addImgItem(RollImgBase+'midi.gif','../../midi/index.html','Midi Songs');
+mnu2.addImgItem(RollImgBase+'misc.gif','../../misc/index.html','Miscellaneous Stuff');
+}
+</script>
+
+<script language="javascript">
+RollOverImage('', 'home', 'home2.gif', 'home.gif', 110, 25,
+              '../../index.html', 'Fiendish Homepage', 1);
+</script>
+<META NAME="Author" CONTENT="Rob Quince">
+<META NAME="Description" CONTENT="JavaScript floating layers, a brief howto">
+<META NAME="Keywords" CONTENT="HTML,CSS,JavaScript,editing,authoring,help,tutorial,divs,layers,floating">
+
+<script language="javascript" src="FloatLayer.js"></script>
+<script language="javascript">
+new FloatLayer('floatlayer',15,15,10);
+function detach(){
+	lay=document.getElementById('floatlayer');
+	l=getXCoord(lay);
+	t=getYCoord(lay);
+	lay.style.position='absolute';
+	lay.style.top=t;
+	lay.style.left=l;
+	getFloatLayer('floatlayer').initialize();
+	alignFloatLayers();
+}
+</script>
+
+</HEAD>
+
+<BODY MARGINWIDTH=0 MARGINHEIGHT=0
+ onload="init()"
+ onresize="alignFloatLayers()"
+ onscroll="alignFloatLayers()">
+
+<TABLE width="100%" border=0 CELLSPACING=0 CELLPADDING=0 BGCOLOR=DARKGREEN>
+	<TR><TD WIDTH="100%" ALIGN=RIGHT height=116><A
+		TARGET="_top" HREF="../../index.html"><IMG BORDER=0
+		SRC="../../images/fiendish_large.gif" HEIGHT=116 WIDTH=437></A></TD></TR>
+	<TR>
+	<TD align=center nowrap bgcolor="green"><A
+		HREF="javascript:openMenu()" TARGET="_top"
+		ONMOUSEOVER="return RollOver('menu')"
+		ONMOUSEOUT="return RollOff('menu')"><IMG
+		NAME="menu" BORDER=0
+		SRC="../../images/menu.gif"
+		WIDTH=110
+		HEIGHT=25
+		ALT="Java Site Menu"></A><A
+		id="progbtn" name="progbtn"
+		HREF="#" TARGET="_top"
+		ONMOUSEOVER="RollMenuClear();RollMenuAdd('m1','progbtn')"
+		><IMG
+		NAME="m1" BORDER=0
+		SRC="../../images/pmenu.gif"
+		WIDTH=110
+		HEIGHT=25
+		ALT="Programming Sections"></A><A
+		id='miscbtn' name='miscbtn'
+		HREF="../../misc/index.html" TARGET="_top"
+		ONMOUSEOVER="RollMenuClear();RollMenuAdd('m2','miscbtn')"
+		><IMG
+		NAME="m2" BORDER=0
+		SRC="../../images/misc.gif"
+		WIDTH=110
+		HEIGHT=25
+		ALT="Miscellaneous Stuff"></A><A
+		HREF="../../r_a_micro/index.html" TARGET="_top"
+		ONMOUSEOVER="return RollOver('consult')"
+		ONMOUSEOUT="return RollOff('consult')"><IMG
+		NAME="consult" BORDER=0
+		SRC="../../images/consult.gif"
+		WIDTH=110
+		HEIGHT=25
+		ALT="Consultancy Services"></A><A
+		HREF="../../downloads.html" TARGET="_top"
+		ONMOUSEOVER="return RollOver('download')"
+		ONMOUSEOUT="return RollOff('download')"><IMG
+		NAME="download" BORDER=0
+		SRC="../../images/download.gif"
+		WIDTH=110
+		HEIGHT=25
+		ALT="Downloads"></A><A
+		HREF="../../feedback.html" TARGET="_top"
+		ONMOUSEOVER="return RollOver('feedback')"
+		ONMOUSEOUT="return RollOff('feedback')"><IMG
+		NAME="feedback" BORDER=0
+		SRC="../../images/feedback.gif"
+		WIDTH=110
+		HEIGHT=25
+		ALT="Feedback Form"></A></TD>
+	</TR>
+</TABLE>
+
+<P>
+<TABLE WIDTH="90%" BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD WIDTH=40><BR></TD>
+    <TD HEIGHT=90>
+	<h1>JavaScript - Floating layers
+	<A HREF="timers.html" TARGET="_top"><IMG
+	SRC="../../images/prev_page.gif" WIDTH=26 HEIGHT=26 ALT="[Previous]"
+	ALIGN=absbottom BORDER=0 hspace=0></A>
+	<A HREF="index.html" TARGET="_top"><IMG
+	SRC="../../images/go_home.gif" WIDTH=26 HEIGHT=26 ALT="[Home]"
+	ALIGN=absbottom BORDER=0></A>
+
+	</h1>
+    </TD>
+  </TR>
+  <TR>
+    <TD WIDTH=40><BR></TD>
+    <TD>
+	<p>
+	Interesting effects and functionality can be achieved on Web pages
+	by the use of floating content, or layers. By floating I mean content
+	that moves about the page, and that does not appear in a fixed location with
+	respect to the page layout. The content may move to follow window scrolling
+	such that it is always visible in the window for example.
+	</p><p>
+	Imagine how handy this type of functionality could be when displaying a
+	large number of rows in a table when a series of buttons need to be provided
+	for actioning the selection of some rows. Without a scroll sensitive floating
+	button-bar, the table would either require button duplication in amongst the
+	rows, duplication of the buttons at the top and bottom, or a bunch of frames
+	to allow the user to easily select some rows and action them. With the floating
+	controls, the user could scroll away, selecting rows as required, then simply
+	action them using constantly in-view buttons. 
+	</p><p>
+	Calling this floating content a layer, although semantically and conceptually
+	convenient, is not quite right. Layers as such do not exist in Web pages. Netscape
+	used to have a <tt>&lt;layer&gt;</tt> tag that provided much of the same
+	functionality, but today this does not exist. Instead, floating content is
+	achieved with the use of position controlled <tt>&lt;div&gt;</tt>s. However,
+	we shall still refer to the floating content as a layer for the sake of
+	convenience.
+	</p><p>
+	With the advent of Cascading Style Sheets (CSS) and the integration of the
+	Document Object Model (DOM) into JavaScript, the positioning and control of
+	<tt>&lt;div&gt;</tt>s has become an everyday task.
+	</p><p>
+	Let's look at an example.
+	</p>
+	<div id="floatlayer" style="width:50%;background:#d0d0ff;border:solid black 1px;padding:5px">
+	Here is a <tt>&lt;div&gt;</tt> that just contains some text. It can be floated
+	as you will see.
+	</div>
+	<p>
+	Now press the button to see what happens next.
+	<input type="button" value="Press Me" onclick="detach()"/>
+	</p>
+	<h3>The explanation</h3>
+	<p>
+	You should have seen the lilac rectangle detach itself from the page
+	and float towards the top-left of the containing window. Scroll around,
+	make the window larger and smaller, and see what happens then too.
+	</p><p>
+	<b>NOTE: </b>Those of you viewing this page with FireFox will have to use the
+	scrollbar to scroll with, not your mouse-wheel, as there is (at the
+	time of writing) a bug precluding scroll events from firing when
+	the mouse wheel is moved.
+	</p><p>
+	The floating rectangle should move to stay 15 pixels from the top left
+	of the containing window. It is set to 50% of the width of the page,
+	so growing or shrinking the width should show an effect too.
+	</p><p>
+	So how is it done ?
+	</p><p>
+	Well, first a <tt>&lt;div&gt;</tt> needs to be defined on the page that
+	can be identified later on. This is achieved by setting the <tt>id</tt>
+	attribute to a page-unique value, <tt>floatlayer</tt> in the example,
+	as shown below. Along with the <tt>id</tt> attribute, rudimentary
+	CSS properties are set too, via the inline <tt>style</tt> attribute.
+	The <tt>div</tt> will become the floating layer.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+&lt;div id="floatlayer" style="width:50%;background:#d0d0ff;border:solid black 1px;padding:5px"&gt;
+Here is a &lt;tt&gt;&amp;lt;div&amp;gt;&lt;/tt&gt; that just contains some text. It can be floated
+as you will see.
+&lt;/div&gt;
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	The CSS styles set the background colour, border and padding properties.
+	By default the <tt>div</tt> is positioned relative to the rest of the
+	page content, that is, it goes with the flow. So, how does it become detached
+	and what makes it float around ?
+	</p>
+	<h4>A floating layer object</h4>
+	<p>
+	A line of JavaScript is executed when the page loads that defines an
+	object that will be used to hold the non-DOM state of the floating layer,
+	along with some associated object methods to manipulate that state.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+new FloatLayer('floatlayer',15,15,10);
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	The parameters passed reflect the value of the <tt>id</tt> attribute of the
+	associated <tt>div</tt>, and set the desired x and y float offsets, and the
+	relative speed of floating. The code for the object constructor is shown below.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+ 1.  var FloatLayers       = new Array();
+ 2.  var FloatLayersByName = new Array();
+ 3.
+ 4.  function FloatLayer(name, offX, offY, speed) {
+ 5.	this.index = FloatLayers.length;
+ 6.
+ 7.	FloatLayers.push(this);
+ 8.	FloatLayersByName[name] = this;
+ 9.
+10.	this.name    = name;
+11.	this.floatX  = 0;
+12.	this.floatY  = 0;
+13.	this.tm      = null;
+14.	this.steps   = speed;
+15.	this.alignHorizontal = (offX >= 0) ? leftFloater : rightFloater;
+16.	this.alignVertical   = (offY >= 0) ? topFloater : bottomFloater;
+17.	this.ifloatX = Math.abs(offX);
+18.	this.ifloatY = Math.abs(offY);
+19.  }
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	Lines 1 and 2 define some arrays that will be used to store the 
+	newly created <tt>FloatLayer</tt> objects by index (traditional
+	numeric subscript) and by name (like a hash table). These arrays
+	enable simple lookup of the objects later on. The objects do not
+	exist within the DOM and so no DOM methods can be used to find
+	them. With IE and FireFox it is possible to define new properties
+	on the DOM element object itself which could be used to store the
+	new object, but I would not recommend this approach as it may not be
+	possible with all browsers. It is much safer to separate the element
+	from the new object.
+	</p><p>
+	When in a JavaScript object method, be it constructor or otherwise,
+	accessing the object's instance properties or variables is done
+	through the <b><tt>this</tt></b> keyword. It represents the object of
+	interest.
+	</p><p>
+	To create a new object variable simply assign to <tt>this.variable</tt>,
+	where <tt>variable</tt> is the name of the variable you wish to create.
+	You can see this being used in line 5 of the constructor to set the
+	array subscript value for the new object, called <tt>index</tt>. The
+	object is then pushed onto the <tt>FloatLayers</tt> array and added
+	to the <tt>FloatLayersByName</tt> hash table, lines 7 and 8.
+	</p><p>
+	The other state variables are then set to their initial values on lines
+	10 through 14. The <tt>name</tt> is set first to the value passed in,
+	the desired position values for left, <tt>floatX</tt>, and top, <tt>floatY</tt>,
+	are initialised, the timer function reference variable, <tt>tm</tt>, is
+	<tt>null</tt>'d and the speed calculation factor, <tt>steps</tt>, is set
+	to the passed value.
+	</p><p>
+	Next the instance movement functions are decided upon according to the
+	values passed in for the float offsets, lines 15 and 16.
+	</p><p>
+	Dynamic method assignment is a feature of JavaScript objects, allowing
+	instance methods to be set during, or post construction, varying from
+	instance to instance as required. Thinking of them as function pointer
+	variables is a good analogy. The functions assigned to the instance methods
+	must exist and be in scope. This type of object method is different from
+	the <tt>prototype</tt> definition which applies to all objects of that
+	class, unless overridden specifically. Class methods will be used later on.
+	</p><p>
+	The functions in this example are <tt>leftFloater</tt> or <tt>rightFloater</tt>
+	for the horizontal movement, and <tt>topFloater</tt> or <tt>bottomFloater</tt>
+	for vertical movement. They will be described in detail later on. The functions
+	are used as follows.
+	<ul>
+		<li><tt>leftFloater</tt> floats towards the left-hand side of the
+			window for positive <tt>offX</tt> values</li>
+		<li><tt>rightFloater</tt> floats towards the right-hand side of the
+			window for negative <tt>offX</tt> values</li>
+		<li><tt>topFloater</tt> floats towards the top of the window for
+			positive <tt>offY</tt> values</li>
+		<li><tt>bottomFloater</tt> floats towards the bottom of the window
+			for negative <tt>offY</tt> values</li>
+	</ul>
+	</p><p>
+	The last thing to do during construction is to get the absolute values of
+	the float offsets and store them for use later, lines 17 and 18.
+	</p>
+	<h4>Detachment</h4>
+	<p>
+	Right, so now there is an object representing the state of the floating
+	layer and a <tt>div</tt> which will become the floating layer. So, what next ?
+	When the button is pressed, the <tt>onclick</tt> event handler JavaScript
+	function, <tt>detach</tt>, is called. The function is as shown below.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+ 1.  function detach(){
+ 2.	lay  = document.getElementById('floatlayer');
+ 3.	left = getXCoord(lay);
+ 4.	top  = getYCoord(lay);
+ 5.	lay.style.position = 'absolute';
+ 6.	lay.style.top      = top;
+ 7.	lay.style.left     = left;
+ 8.	getFloatLayer('floatlayer').initialize();
+ 9.	alignFloatLayers();
+10.  }
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	Line 2 of the function fetches the DOM element that represents
+	the <tt>div</tt>. It does so by passing the value of the <tt>id</tt>
+	attribute, in this case <tt>floatlayer</tt>, to the <tt>document.getElementById</tt>
+	DOM function.
+	</p><p>
+	Once the element has been saved to a variable, it is possible
+	to manipulate the CSS properties to detach the <tt>div</tt> from the
+	relative page flow and make it free floating. First though, it is necessary
+	to retrieve the absolute position of the <tt>div</tt> so that, when made
+	into a floating layer, it can be initially repositioned to look as though
+	nothing has happened. This is achieved by calling 2 further functions that
+	get the left and top position values from the element. This is done on
+	lines 3 and 4, the code for the functions is shown below.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+function getXCoord(el) {
+	x = 0;
+	while(el){
+		x += el.offsetLeft;
+		el = el.offsetParent;
+	}
+	return x;
+}
+function getYCoord(el) {
+	y = 0;
+	while(el){
+		y += el.offsetTop;
+		el = el.offsetParent;
+	}
+	return y;
+}
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	The element hierarchy needs to be traversed upwards from the <tt>div</tt>
+	so that the position of any enclosing element can be taken into account.
+	</p><p>
+	Next, the <tt>div</tt> is made free floating by setting the element's
+	CSS <tt>position</tt> property to <tt>absolute</tt>, line 5 of the
+	<tt>detach</tt> function. This causes the browser to re-flow the page
+	ignoring the <tt>div</tt>, which it displays at its last known position.
+	However, because the page has been re-flowed that position is not where
+	it used to be relative to the rest of the content. This is why it is
+	necessary to re-set the position to that prior to floating, by setting the
+	element's CSS <tt>top</tt> and <tt>left</tt> properties to the values
+	found earlier, lines 6 and 7 of the function.
+	</p>
+	<h4>Moving the floater</h4>
+	<p>
+	Lines 8 and 9 of the <tt>detach</tt> function is where things start to get
+	a bit more interesting. The function <tt>getFloatLayer</tt> is called with
+	the <tt>id</tt> value of the now floating <tt>div</tt>, <tt>floatlayer</tt>.
+	The function returns the associated <tt>FloatLayer</tt> object created
+	when the page loaded. The object's <tt>initialize</tt> method is then called.
+	</p><p>
+	The function <tt>getFloatLayer</tt> is a convenience method for looking
+	up an instance of a <tt>FloatLayer</tt> object in the <tt>FloatLayersByName</tt>
+	hash table. The code is shown below.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+function getFloatLayer(name){
+	return FloatLayersByName[name];
+}
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	When we created the <tt>FloatLayer</tt> object for the floating layer
+	the code in the constructor did not set an object method for
+	<tt>initialize</tt>, so how does this work ?
+	</p><p>
+	JavaScript objects can have prototypical methods defined against their
+	class, using the class's <tt>prototype</tt> property. These are much
+	like the dynamic object methods, but apply to all objects of that class
+	and are assigned outside of the constructor or object methods, as
+	shown below for <tt>FloatLayer</tt>.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+FloatLayer.prototype.initialize=defineFloater;
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	There are more class methods that get assigned to the <tt>FloatLayer</tt>
+	class to handle movement, but more of that later. First the <tt>initialize</tt>
+	method. It is implemented by the <tt>defineFloater</tt> function as shown
+	below.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+1.  function defineFloater(){
+2.	this.layer  = document.getElementById(this.name);
+3.	this.width  = this.layer.offsetWidth;
+4.	this.height = this.layer.offsetHeight;
+5.	this.prevX  = this.layer.offsetLeft;
+6.	this.prevY  = this.layer.offsetTop;
+7.  }
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	The function is intended to be called prior to the first movement
+	of the layer, so that it can set up the initial values for use in
+	calculating the layer's trajectory. Line 2 of the function stores
+	the DOM element object for the associated <tt>div</tt> into the
+	<tt>FloatLayer</tt> object. Storing the DOM object for the <tt>div</tt>
+	must be deferred until this point, rather than happening in the
+	object constructor, because, at the point the constructor is called,
+	the element will not have been rendered, so will not exist. However,
+	because the <tt>initialize</tt> method is called by the <tt>detach</tt>
+	function, which is in turn called in response to the pressing of a button
+	on the rendered page, the <tt>div</tt> is guaranteed to exist, and so
+	can be stored.
+	</p><p>
+	On lines 3 through 6, the current size and position of the floating
+	layer are obtained from the DOM object, and stored into the <tt>FloatLayer</tt>
+	object, for use later on. The <tt>prevX</tt> and <tt>prevY</tt> object
+	variables are set to the position. These values are used as part of the
+	trajectory calculation later on, and so are set up to reflect the
+	current display location of the layer.
+	</p><p>
+	Note here that no object hierarchy is traversed. This is because a floating
+	layer is positioned with respect to the page, not the enclosing elements,
+	so there is no hierarchy.
+	</p><p>
+	Okay, so now we have an initialised object the represents the floating
+	<tt>div</tt>. Line 9 of the <tt>detach</tt> function sets things in motion,
+	by calling the <tt>alignFloatLayers</tt> function. This function is
+	shown below.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+1.  FloatLayer.prototype.align=alignFloater;
+2.
+3.  function alignFloatLayers() {
+4.	for( var i=0; i&lt;FloatLayers.length; i++)
+5.		FloatLayers[i].align();
+6.  }
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	The function is another convenience method. It iterates over all the
+	objects defined in the <tt>FloatLayers</tt> array, line 4, and calls their
+	<tt>align</tt> method, line 5. The <tt>align</tt> method is another class
+	method and is assigned to the <tt>alignFloater</tt> function, line 1.
+	This function kick starts the movement of the floating layer, if need be,
+	and is shown below.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+1.  function alignFloater(){
+2.	if(this.layer == null) this.initialize();
+3.	this.alignHorizontal();
+4.	this.alignVertical();
+5.	if( this.prevX != this.floatX || this.prevY != this.floatY ){
+6.		if(this.tm == null)
+7.			this.tm=setTimeout('FloatLayers['+this.index+'].adjust()',50);
+8.	}
+9.  }
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	A check is made to make sure that the layer is initialised prior to
+	going forwards on line 2. This is in case a <tt>FloatLayer</tt> has
+	not yet been touched by other code in the page, which can happen
+	in the case where multiple floating layers are in use. Next, on
+	lines 3 and 4, the alignment object methods are called. What these
+	do is dependent on the values the methods were set to in the object
+	constructor.
+	</p><p>
+	In any case, the methods set the <tt>floatX</tt> and <tt>floatY</tt>
+	object variables to the desired final location of the layer, according
+	to the current window scroll position and size. The different methods
+	are shown below.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+ 1.  function leftFloater() {
+ 2.	this.floatX = document.body.scrollLeft + this.ifloatX;
+ 3.  }
+ 4.  function topFloater() {
+ 5.	this.floatY = document.body.scrollTop + this.ifloatY;
+ 6.  }
+ 7.  function rightFloater() {
+ 8.	this.floatX = document.body.scrollLeft +
+ 9.			document.body.clientWidth - this.ifloatX - this.width;
+10.  }
+11.  function bottomFloater() {
+12.	this.floatY = document.body.scrollTop +
+13.			document.body.clientHeight - this.ifloatY - this.height;
+14.  }
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	On line 5 of the <tt>alignFloatLayer</tt> function, a check is made
+	to see if the floating layer needs to be moved, or whether it is
+	in its final location already. If it needs to be moved, and a movement
+	has not already been scheduled, line 6, a timer is set to perform a
+	step along the trajectory to the final location, line 7.
+	</p><p>
+	JavaScript timers are described in detail on the <a href="timers.html">Delayed Actions</a>
+	page.
+	</p><p>
+	The action performed by the timer is to call the <tt>adjust</tt> method
+	of the <tt>FloatLayer</tt> object being aligned. This method is another
+	of the class methods and is shown below. The method is assigned to the
+	<tt>adjustFloater</tt> function. It calculates the next step along the
+	movement trajectory from current location to desired final location
+	for the <tt>FloatLayer</tt> object of interest, and is the main function
+	in moving a floating layer.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+ 1.  FloatLayer.prototype.adjust=adjustFloater;
+ 2.
+ 3.  function adjustFloater() {
+ 4.	this.tm=null;
+ 5.	if(this.layer.style.position!='absolute')return;
+ 6.
+ 7.	var dx = Math.abs(this.floatX-this.prevX);
+ 8.	var dy = Math.abs(this.floatY-this.prevY);
+ 9.
+10.	if (dx &lt; this.steps / 2)
+11.		cx = (dx &gt;= 1) ? 1 : 0;
+12.	else
+13.		cx = Math.round(dx/this.steps);
+14.
+15.	if (dy &lt; this.steps/2)
+16.		cy = (dy &gt;= 1) ? 1 : 0;
+17.	else
+18.		cy = Math.round(dy/this.steps);
+19.
+20.	if (this.floatX &gt; this.prevX)
+21.		this.prevX += cx;
+22.	else if (this.floatX &lt; this.prevX)
+23.		this.prevX -= cx;
+24.
+25.	if (this.floatY &gt; this.prevY)
+26.		this.prevY += cy;
+27.	else if (this.floatY &lt; this.prevY)
+28.		this.prevY -= cy;
+29.
+30.	this.layer.style.left = this.prevX;
+31.	this.layer.style.top  = this.prevY;
+32.
+33.	if (cx != 0 || cy != 0){
+34.		if(this.tm == null)
+35.			this.tm=setTimeout('FloatLayers['+this.index+'].adjust()',50);
+36.	}else
+37.		alignFloatLayers();
+38.  }
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	The first thing is to acknowledge the expiration of the timer that
+	called the function, by setting the <tt>tm</tt> object variable to
+	<tt>null</tt>, line 4. This also allows subsequent timers to be set.
+	Next, as a sanity check, the CSS <tt>position</tt> mode of the
+	<tt>div</tt> is checked to make sure it is <tt>absolute</tt>, line 5.
+	This is required because the function is called as the result of a
+	timer expiration, so the opportunity is there for other code to
+	alter the property prior to the timer firing.
+	</p><p>
+	On lines 7 and 8 the difference, or delta, between the current location,
+	held in <tt>prevX</tt> and <tt>prevY</tt>, and the desired location,
+	held in <tt>floatX</tt> and <tt>floatY</tt> is calculated. If either
+	value is 0, no further location change will take place in that axis.
+	Lines 10 through 18 calculate the axis changes necessary to move the
+	layer to its next step on the trajectory to the final location.
+	</p><p>
+	If an axis delta is larger than half the speed regulator value, <tt>steps</tt>,
+	the axis change is one <tt>steps</tt> value of the delta. Otherwise, if there
+	is a delta, the change is a single pixel. The calculation allows the
+	layer to move fast if the delta is large, and slowly if the delta is
+	small, giving the effect of the layer sliding into place gently.
+	Experimentation with the <tt>steps</tt> value shows how the motion
+	is affected.
+	</p><p>
+	Next, on lines 20 through 28, any axis change is applied to the current
+	location variables, according to whether the layer needs to move
+	up, down, left or right to get to its final location.
+	</p><p>
+	Then, once the new current location has been calculated, it is applied
+	to the CSS <tt>left</tt> and <tt>top</tt> properties for the <tt>div</tt>
+	object, moving it with respect to the page, lines 30 and 31.
+	</p><p>
+	Lastly, a check is performed to see if any further movement is required,
+	lines 33 through 37. The check is two-phase. Phase one is simple: was there
+	a change this time ? If so, schedule a further call to this <tt>FloatLayer</tt>
+	object's adjust method. If not, do phase two: call the <tt>alignFloatLayer</tt>
+	function. This function, if you remember, recalculates the final location
+	for each floating layer with respect to the window scroll position and
+	size. Essentially, this is a safety net that catches window resize
+	and scroll effects that took place during trajectory adjusting.
+	</p>
+	<p>
+	The final requirement is to arrange for window resize and scroll events to
+	call the <tt>alignFloatLayers</tt> function aswell, via the <tt>body</tt>
+	element <tt>onresize</tt> and <tt>onscroll</tt>event handlers.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+&lt;body onresize="alignFloatLayers()" onscroll="alignFloatLayers()"&gt;
+</pre>
+</div>
+</div>
+</p>
+
+	<h4>The code</h4>
+	<p>
+	The easiest way to incorporate this functionality into a page is
+	to collect the various non-page specific parts together into a
+	dedicated JavaScript file, usually denoted by a <tt>js</tt> extension,
+	and include it into the page via a <tt>&lt;script&gt;</tt> tag.
+	</p>
+<p>
+<div class="example">
+<div>
+<pre class="example">
+&lt;script language="javascript" src="FloatLayer.js"&gt;&lt;/script&gt;
+</pre>
+</div>
+</div>
+</p>
+
+	<p>
+	Such a file is available on the
+	<a href="../../downloads.html#javascript">downloads</a>
+	page.
+    </TD>
+  </TR>
+</TABLE>
+</P>
+<HR NOSHADE WIDTH="100%">
+<CENTER>
+<P>
+  <A HREF="../../index.html"
+     TARGET="_top"
+     ONMOUSEOVER="return RollOver('home')"
+     ONMOUSEOUT="return RollOff('home')"><IMG
+	WIDTH=110 HEIGHT=25
+        NAME="home" ALT="[Fiendish Home]"
+        SRC="../../images/home.gif"
+        BORDER=0></A>
+</P>
+</CENTER>
+<HR WIDTH=750 NOSHADE>
+<TABLE border=0 width="100%">
+  <TR><TD align=center>
+  <P STYLE="font-size: 75%">
+  Content of this page Copyright © Robert Quince 1996 - 2005.<BR>
+  <A HREF="/feedback.html"> Site Comments</A>
+  </P>
+</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>

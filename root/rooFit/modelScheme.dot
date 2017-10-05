@@ -1,0 +1,51 @@
+digraph model{
+"model" [ color=red, label="RooAddPdf
+model"];
+"gaussxy" [ color=red, label="RooProdPdf
+gaussxy"];
+"gaussx" [ color=red, label="RooGaussian
+gaussx"];
+"x" [ color=blue, label="RooRealVar
+x"];
+"meanx" [ color=blue, label="RooRealVar
+meanx"];
+"sigmax" [ color=blue, label="RooRealVar
+sigmax"];
+"gaussy" [ color=red, label="RooGaussian
+gaussy"];
+"y" [ color=blue, label="RooRealVar
+y"];
+"meany" [ color=blue, label="RooRealVar
+meany"];
+"sigmay" [ color=blue, label="RooRealVar
+sigmay"];
+"gfrac" [ color=blue, label="RooRealVar
+gfrac"];
+"bkg" [ color=red, label="RooProdPdf
+bkg"];
+"polix" [ color=red, label="RooPolynomial
+polix"];
+"poly_c1x" [ color=blue, label="RooRealVar
+poly_c1x"];
+"poly_c2x" [ color=blue, label="RooRealVar
+poly_c2x"];
+"poliy" [ color=red, label="RooPolynomial
+poliy"];
+"model" -> "bkg";
+"model" -> "gaussxy";
+"model" -> "gfrac";
+"bkg" -> "poliy";
+"bkg" -> "polix";
+"gaussxy" -> "gaussy";
+"gaussxy" -> "gaussx";
+"poliy" -> "y";
+"polix" -> "poly_c2x";
+"polix" -> "poly_c1x";
+"polix" -> "x";
+"gaussy" -> "sigmay";
+"gaussy" -> "meany";
+"gaussy" -> "y";
+"gaussx" -> "sigmax";
+"gaussx" -> "meanx";
+"gaussx" -> "x";
+}

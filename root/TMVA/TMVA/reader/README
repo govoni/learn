@@ -1,0 +1,9 @@
+The standalone reader class (TMVA_Reader using TMVA_ReaderTools) has been removed.
+Because of the code duplication, its maintenance was too tedious and error prone.
+Since the integration of TMVA within ROOT, libTMVA.so should be available through ROOT.
+
+Please use the reader class src/Reader.h in your application. Usage examples
+are provided in macros/TMVApplication.C or examples/TMVApplication.cxx.
+
+-----------------------------------------------------------------------------------
+The TMVA team, September 12, 2006

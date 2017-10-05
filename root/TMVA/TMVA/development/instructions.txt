@@ -1,0 +1,55 @@
+### first, make sure the HEAD of TMVA-CVS is what we want in the ROOT release !
+
+
+### this is a temporary directory in which we will create all necessary files for Rene
+mkdir TMVAintoROOT; cd TMVAintoROOT 
+
+# we compile against the head of root
+svn co http://root.cern.ch/svn/root/trunk root
+
+### Now get the CVS-HEAD of TMVA
+setenv CVS_RSH ssh
+### next line, use your account name
+cvs -d:ext:stelzer@tmva.cvs.sourceforge.net:/cvsroot/tmva co -P TMVA
+cd TMVA
+
+### now the files from TMVA are copied over two ROOT/tmva (src/inc/test dirs)
+### ( if you think something is missing, please modify the script 'makeROOTpackage.sh'
+### so that it is fixed for the next time )
+./development/makeROOTpackage.sh ../root 
+
+### now we prepare the cvs diff
+cd ../root
+ 
+# !!
+# !! Here you need to check if there are any old file in tmva/src
+# !! and tmva/inc that are not part of ROOT any longer
+# !! 
+
+# find the differences with respect to the HEAD of root/tmva
+svn diff tmva > TMVA.diff
+
+# in the new files the cvs id needs to be reset
+myreplaceline '\/\/ @(#)root\/tmva ' '// @(#)root/tmva $\Id$' `grep '^\?' TMVA.diff | awk '{print $2}'`
+
+# in case of chosing option 2) above,
+# now is the time to compile and
+# make sure it works
+./configure
+make all-tmva
+
+# only if this was successful one should go ahead
+
+### Only if there are new files, they have to be tar'd separately
+### ( The following command identifies all new files by the leading ?
+### in TMVA.diff and than archives them into TMVAnalysis.tar )
+### NOTE: this command is for [t]csh
+tar -cvf TMVAnewfiles.tar `grep '^\?' TMVA.diff | awk '{print $2}'`
+
+### both files, 'TMVA.diff' and 'TMVAnewfiles.tar', have to be sent to Rene
+
+### after that you can delete the directory
+
+### cd ../../; rm -r TMVAintoROOT
+
+### Good night

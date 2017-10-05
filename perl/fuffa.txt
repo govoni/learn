@@ -1,0 +1,7 @@
+nome = decimo
+cognome = massimo
+
+soprannome = meridio
+proverbio = campa cavallo che l'erba cresce
+
+# cribbio questa riga e' da saltare

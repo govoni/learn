@@ -1,0 +1,3 @@
+.x /Users/govoni/public/rootLogon.C
+.x ../macros/TMVAGui.C
+.q

@@ -1,0 +1,89 @@
+#GEN -*-*-*-*-*-*-*-*-*-*-*- general info -*-*-*-*-*-*-*-*-*-*-*-
+
+Method         : MLP::MLP
+TMVA Release   : 3.9.5         [198917]
+ROOT Release   : 5.22/00       [333312]
+Creator        : govoni
+Date           : Wed Mar  4 22:12:14 2009
+Host           : Darwin pb-d-128-141-34-27.cern.ch 9.6.0 Darwin Kernel Version 9.6.0: Mon Nov 24 17:37:00 PST 2008; root:xnu-1228.9.59~1/RELEASE_I386 i386
+Dir            : /Users/govoni/private/job/learn/root/TMVA/testTMVA
+Training events: 1630
+
+
+#OPT -*-*-*-*-*-*-*-*-*-*-*-*- options -*-*-*-*-*-*-*-*-*-*-*-*-
+
+# Set by User:
+Normalise: "True" [Normalise input variables]
+V: "False" [Verbose mode]
+H: "True" [Print classifier-specific help message]
+NCycles: "200" [Number of training cycles]
+HiddenLayers: "N+1,N" [Specification of hidden layer architecture (N stands for number of variables; any integers may also be used)]
+NeuronType: "tanh" [Neuron activation function type]
+TestRate: "5" [Test for overtraining performed at each #th epochs]
+# Default:
+D: "False" [Use-decorrelated-variables flag (depreciated)]
+VarTransform: "None" [Variable transformation method]
+VarTransformType: "Signal" [Use signal or background events to derive for variable transformation (the transformation is applied on both types of, course)]
+NbinsMVAPdf: "60" [Number of bins used for the PDFs of classifier outputs]
+NsmoothMVAPdf: "2" [Number of smoothing iterations for classifier PDFs]
+VerboseLevel: "Default" [Verbosity level]
+CreateMVAPdfs: "False" [Create PDFs for classifier outputs (signal and background)]
+TxtWeightFilesOnly: "True" [If True: write all training results (weights) as text files (False: some are written in ROOT format)]
+NeuronInputType: "sum" [Neuron input function type]
+TrainingMethod: "BP" [Train with Back-Propagation (BP - default) or Genetic Algorithm (GA - slower and worse)]
+LearningRate: "0.02" [ANN learning rate parameter]
+DecayRate: "0.01" [Decay rate for learning parameter]
+BPMode: "sequential" [Back-propagation learning mode: sequential or batch]
+BatchSize: "-1" [Batch size: number of events/batch, only set if in Batch Mode, -1 for BatchSize=number_of_events]
+##
+
+
+#VAR -*-*-*-*-*-*-*-*-*-*-*-* variables *-*-*-*-*-*-*-*-*-*-*-*-
+
+NVar 3
+vars.Deta                     vars.Deta                         'F'    [0.00154621631373,9.01126003265]
+vars.Dphi                     vars.Dphi                         'F'    [0.000456965295598,3.14073491096]
+vars.Minv                     vars.Minv                         'F'    [13.3289089203,3685.25610352]
+
+
+#MAT -*-*-*-*-*-*-*-*-* transformation data -*-*-*-*-*-*-*-*-*-
+
+
+#WGT -*-*-*-*-*-*-*-*-*-*-*-*- weights -*-*-*-*-*-*-*-*-*-*-*-*-
+
+Weights
+(layer0,neuron0)-(layer1,neuron0): -1.31028429774
+(layer0,neuron0)-(layer1,neuron1): 3.01265837464
+(layer0,neuron0)-(layer1,neuron2): 2.30850257052
+(layer0,neuron0)-(layer1,neuron3): 1.01430838433
+(layer0,neuron1)-(layer1,neuron0): 0.334857537625
+(layer0,neuron1)-(layer1,neuron1): -0.540605415916
+(layer0,neuron1)-(layer1,neuron2): -0.794204745353
+(layer0,neuron1)-(layer1,neuron3): 1.6916523835
+(layer0,neuron2)-(layer1,neuron0): -3.72343421405
+(layer0,neuron2)-(layer1,neuron1): -0.800145980752
+(layer0,neuron2)-(layer1,neuron2): -2.44382581814
+(layer0,neuron2)-(layer1,neuron3): 0.0384875756913
+(layer0,neuron3)-(layer1,neuron0): -3.35654758254
+(layer0,neuron3)-(layer1,neuron1): 1.58963568664
+(layer0,neuron3)-(layer1,neuron2): -1.87705570904
+(layer0,neuron3)-(layer1,neuron3): -0.652334347611
+(layer1,neuron0)-(layer2,neuron0): -1.42750487744
+(layer1,neuron0)-(layer2,neuron1): 1.63972927903
+(layer1,neuron0)-(layer2,neuron2): 0.188915587053
+(layer1,neuron1)-(layer2,neuron0): 1.50705068541
+(layer1,neuron1)-(layer2,neuron1): -0.180804151273
+(layer1,neuron1)-(layer2,neuron2): -1.32994439846
+(layer1,neuron2)-(layer2,neuron0): -0.725018150225
+(layer1,neuron2)-(layer2,neuron1): 2.59421569221
+(layer1,neuron2)-(layer2,neuron2): -0.364296901435
+(layer1,neuron3)-(layer2,neuron0): -1.33997478767
+(layer1,neuron3)-(layer2,neuron1): 0.832348466685
+(layer1,neuron3)-(layer2,neuron2): -1.6217544143
+(layer1,neuron4)-(layer2,neuron0): -1.8705804976
+(layer1,neuron4)-(layer2,neuron1): 0.405709626439
+(layer1,neuron4)-(layer2,neuron2): -0.385344232948
+(layer2,neuron0)-(layer3,neuron0): 0.327409206076
+(layer2,neuron1)-(layer3,neuron0): -0.563505392027
+(layer2,neuron2)-(layer3,neuron0): -0.371757087623
+(layer2,neuron3)-(layer3,neuron0): -0.365057172731
