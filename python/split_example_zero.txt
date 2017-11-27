@@ -1,0 +1,7 @@
+testo1
+WORD1
+testo2
+WORD2
+testo3
+WORD3
+testo4
