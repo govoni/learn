@@ -8,6 +8,6 @@ def replaceAll(file,searchExp,replaceExp):
         sys.stdout.write(line)
 
 if __name__ == "__main__":
-    replaceAll("test.txt","CAZZO","FICA")
+    replaceAll("test.txt","UNO","DUE")
 
 
